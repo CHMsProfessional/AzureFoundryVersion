@@ -1,0 +1,150 @@
+2025-09-24 16:59:55,533:azure.identity._credentials.environment:INFO:No environment configuration found.
+2025-09-24 16:59:55,790:azure.identity._credentials.managed_identity:INFO:ManagedIdentityCredential will use IMDS
+2025-09-24 16:59:55,790:azure.identity._internal.decorators:DEBUG:EnvironmentCredential.get_token failed: EnvironmentCredential authentication unavailable. Environment variables are not fully configured.
+Visit https://aka.ms/azsdk/python/identity/environmentcredential/troubleshoot to troubleshoot this issue.
+Traceback (most recent call last):
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\identity\_internal\decorators.py", line 23, in wrapper
+    token = fn(*args, **kwargs)
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\identity\_credentials\environment.py", line 155, in get_token
+    raise CredentialUnavailableError(message=message)
+azure.identity._exceptions.CredentialUnavailableError: EnvironmentCredential authentication unavailable. Environment variables are not fully configured.
+Visit https://aka.ms/azsdk/python/identity/environmentcredential/troubleshoot to troubleshoot this issue.
+2025-09-24 16:59:55,799:azure.core.pipeline.policies.http_logging_policy:INFO:Request URL: 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=REDACTED&resource=REDACTED'
+Request method: 'GET'
+Request headers:
+    'User-Agent': 'azsdk-python-identity/1.25.0 Python/3.13.5 (Windows-11-10.0.26100-SP0)'
+No body was attached to the request
+2025-09-24 16:59:55,801:urllib3.connectionpool:DEBUG:Starting new HTTP connection (1): 169.254.169.254:80
+2025-09-24 16:59:56,813:azure.identity._internal.msal_managed_identity_client:DEBUG:ImdsCredential.get_token failed: ManagedIdentityCredential authentication unavailable, no response from the IMDS endpoint.
+Traceback (most recent call last):
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\identity\_credentials\imds.py", line 110, in _request_token
+    client.request_token(*scopes, connection_timeout=1, retry_total=0)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\identity\_internal\managed_identity_client.py", line 145, in request_token
+    response = self._pipeline.run(request, retry_on_methods=[request.method], **kwargs)
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\core\pipeline\_base.py", line 242, in run
+    return first_node.send(pipeline_request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\core\pipeline\_base.py", line 98, in send
+    response = self.next.send(request)
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\core\pipeline\_base.py", line 98, in send
+    response = self.next.send(request)
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\core\pipeline\_base.py", line 98, in send
+    response = self.next.send(request)
+  [Previous line repeated 1 more time]
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\core\pipeline\policies\_retry.py", line 567, in send
+    raise err
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\core\pipeline\policies\_retry.py", line 545, in send
+    response = self.next.send(request)
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\core\pipeline\_base.py", line 98, in send
+    response = self.next.send(request)
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\core\pipeline\_base.py", line 98, in send
+    response = self.next.send(request)
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\core\pipeline\_base.py", line 98, in send
+    response = self.next.send(request)
+  [Previous line repeated 1 more time]
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\core\pipeline\_base.py", line 130, in send
+    self._sender.send(request.http_request, **request.context.options),
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\core\pipeline\transport\_requests_basic.py", line 411, in send
+    raise error
+azure.core.exceptions.ServiceRequestError: (<urllib3.connection.HTTPConnection object at 0x000002ADCC3ADA90>, 'Connection to 169.254.169.254 timed out. (connect timeout=1)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\identity\_internal\msal_managed_identity_client.py", line 163, in _get_token_base
+    token = self._request_token(*scopes, claims=claims, tenant_id=tenant_id, enable_cae=enable_cae, **kwargs)
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\identity\_credentials\imds.py", line 120, in _request_token
+    raise CredentialUnavailableError(error_message) from ex
+azure.identity._exceptions.CredentialUnavailableError: ManagedIdentityCredential authentication unavailable, no response from the IMDS endpoint.
+2025-09-24 16:59:56,815:azure.identity._internal.decorators:DEBUG:ManagedIdentityCredential.get_token failed: ManagedIdentityCredential authentication unavailable, no response from the IMDS endpoint.
+Traceback (most recent call last):
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\identity\_credentials\imds.py", line 110, in _request_token
+    client.request_token(*scopes, connection_timeout=1, retry_total=0)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\identity\_internal\managed_identity_client.py", line 145, in request_token
+    response = self._pipeline.run(request, retry_on_methods=[request.method], **kwargs)
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\core\pipeline\_base.py", line 242, in run
+    return first_node.send(pipeline_request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\core\pipeline\_base.py", line 98, in send
+    response = self.next.send(request)
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\core\pipeline\_base.py", line 98, in send
+    response = self.next.send(request)
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\core\pipeline\_base.py", line 98, in send
+    response = self.next.send(request)
+  [Previous line repeated 1 more time]
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\core\pipeline\policies\_retry.py", line 567, in send
+    raise err
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\core\pipeline\policies\_retry.py", line 545, in send
+    response = self.next.send(request)
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\core\pipeline\_base.py", line 98, in send
+    response = self.next.send(request)
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\core\pipeline\_base.py", line 98, in send
+    response = self.next.send(request)
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\core\pipeline\_base.py", line 98, in send
+    response = self.next.send(request)
+  [Previous line repeated 1 more time]
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\core\pipeline\_base.py", line 130, in send
+    self._sender.send(request.http_request, **request.context.options),
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\core\pipeline\transport\_requests_basic.py", line 411, in send
+    raise error
+azure.core.exceptions.ServiceRequestError: (<urllib3.connection.HTTPConnection object at 0x000002ADCC3ADA90>, 'Connection to 169.254.169.254 timed out. (connect timeout=1)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\identity\_internal\decorators.py", line 23, in wrapper
+    token = fn(*args, **kwargs)
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\identity\_credentials\managed_identity.py", line 187, in get_token
+    return cast(TokenCredential, self._credential).get_token(*scopes, claims=claims, tenant_id=tenant_id, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\identity\_internal\msal_managed_identity_client.py", line 122, in get_token
+    token_info = self._get_token_base(*scopes, options=options, base_method_name="get_token", **kwargs)
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\identity\_internal\msal_managed_identity_client.py", line 163, in _get_token_base
+    token = self._request_token(*scopes, claims=claims, tenant_id=tenant_id, enable_cae=enable_cae, **kwargs)
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\identity\_credentials\imds.py", line 120, in _request_token
+    raise CredentialUnavailableError(error_message) from ex
+azure.identity._exceptions.CredentialUnavailableError: ManagedIdentityCredential authentication unavailable, no response from the IMDS endpoint.
+2025-09-24 16:59:56,822:azure.identity._internal.decorators:DEBUG:SharedTokenCacheCredential.get_token failed: SharedTokenCacheCredential authentication unavailable. No accounts were found in the cache.
+Traceback (most recent call last):
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\identity\_internal\decorators.py", line 23, in wrapper
+    token = fn(*args, **kwargs)
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\identity\_credentials\shared_cache.py", line 85, in get_token
+    return cast(TokenCredential, self._credential).get_token(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        *scopes, claims=claims, tenant_id=tenant_id, enable_cae=enable_cae, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\identity\_credentials\shared_cache.py", line 152, in get_token
+    token_info = self._get_token_base(*scopes, options=options, base_method_name="get_token", **kwargs)
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\identity\_credentials\shared_cache.py", line 186, in _get_token_base
+    account = self._get_account(self._username, self._tenant_id, is_cae=is_cae)
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\identity\_internal\decorators.py", line 75, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\identity\_internal\shared_token_cache.py", line 209, in _get_account
+    raise CredentialUnavailableError(message=NO_ACCOUNTS)
+azure.identity._exceptions.CredentialUnavailableError: SharedTokenCacheCredential authentication unavailable. No accounts were found in the cache.
+2025-09-24 16:59:56,823:azure.identity._internal.decorators:DEBUG:VisualStudioCodeCredential.get_token failed: VisualStudioCodeCredential requires the 'azure-identity-broker' package to be installed. You must also ensure you have the Azure Resources extension installed and have signed in to Azure via Visual Studio Code.
+Traceback (most recent call last):
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\identity\_internal\decorators.py", line 23, in wrapper
+    token = fn(*args, **kwargs)
+  File "C:\Users\crist\OneDrive\Documentos\Trabajo Khipus IA\Agentes IA\Big Dash\AzureFoundryVersion\.venv\Lib\site-packages\azure\identity\_credentials\vscode.py", line 211, in get_token
+    raise CredentialUnavailableError(message=self._unavailable_message)
+azure.identity._exceptions.CredentialUnavailableError: VisualStudioCodeCredential requires the 'azure-identity-broker' package to be installed. You must also ensure you have the Azure Resources extension installed and have signed in to Azure via Visual Studio Code.
+2025-09-24 16:59:56,824:azure.identity._credentials.azure_cli:DEBUG:Executing subprocess with the following arguments ['C:\\Program Files\\Microsoft SDKs\\Azure\\CLI2\\wbin\\az.cmd', 'account', 'get-access-token', '--output', 'json', '--resource', 'https://ai.azure.com']
+2025-09-24 16:59:57,612:azure.identity._internal.decorators:DEBUG:AzureCliCredential.get_token succeeded
+2025-09-24 16:59:57,613:azure.identity._internal.decorators:DEBUG:[Authenticated account] Client ID: 04b07795-8ddb-461a-bbee-02f9e1bf7b46. Tenant ID: 04ed42b1-6205-49f6-b319-1da84b6ab667. User Principal Name: christian@nikjouseifullahoutlook.onmicrosoft.com. Object ID (user): 4826b327-f946-48d6-ab15-8c78cd324f66
+2025-09-24 16:59:57,613:azure.identity._credentials.chained:INFO:DefaultAzureCredential acquired a token from AzureCliCredential
+2025-09-24 16:59:58,668:websocket:INFO:Websocket connected
+2025-09-24 16:59:58,668:__main__:INFO:WebSocket connection opened
+2025-09-24 16:59:58,719:__main__:INFO:Starting audio stream ...
+2025-09-24 16:59:58,724:__main__:ERROR:WebSocket error: [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-09-24 16:59:58,724:websocket:ERROR:[WinError 10054] An existing connection was forcibly closed by the remote host - goodbye
+2025-09-24 16:59:58,724:__main__:INFO:WebSocket connection closed
+2025-09-24 16:59:58,779:__main__:INFO:Starting audio playback ...
+2025-09-24 17:00:40,880:__main__:INFO:Audio stream closed.
+2025-09-24 17:00:41,103:__main__:INFO:Playback done.
