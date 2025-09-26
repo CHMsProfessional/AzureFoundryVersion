@@ -1,4 +1,3 @@
-#Speech example to test the Azure Voice Live API
 import os
 import uuid
 import json
